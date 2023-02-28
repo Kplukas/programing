@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Master;
 use App\Http\Requests\StoreMasterRequest;
 use App\Http\Requests\UpdateMasterRequest;
+use Illuminate\Support\Facades\Validator;
 
 class MasterController extends Controller
 {
@@ -13,7 +14,14 @@ class MasterController extends Controller
      */
     public function index()
     {
-        //
+        $masters = Master::all();
+        return View('back.master.index', ['masters' => $masters]);
+    }
+
+    public function index2()
+    {
+        $masters = Master::all();
+        return View('front.master.index', ['masters' => $masters]);
     }
 
     /**
@@ -21,7 +29,7 @@ class MasterController extends Controller
      */
     public function create()
     {
-        //
+        return View('back.master.create');
     }
 
     /**
@@ -29,7 +37,20 @@ class MasterController extends Controller
      */
     public function store(StoreMasterRequest $request)
     {
-        //
+        $master = new Master;
+        $master->name = $request->name;
+        $master->surname = $request->surname;
+        $master->salon_id = $request->salon_id;
+        if ($request->file('photo')) {
+            $photo = $request->file('photo');
+            $ext = $photo->getClientOriginalExtension();
+            $name = pathInfo($photo->getClientOriginalName(), PATHINFO_FILENAME);
+            $file = $name. '-'. rand(100000, 999999). $ext;
+            $photo->move(public_path().'/img', $file);
+            $master->photo = '/img'. '/'. $file;
+        }
+        $master->save();
+        return redirect()->route('master-index');
     }
 
     /**
@@ -45,7 +66,7 @@ class MasterController extends Controller
      */
     public function edit(Master $master)
     {
-        //
+        return View('back.master.edit', ['master' => $master]);
     }
 
     /**
@@ -53,7 +74,19 @@ class MasterController extends Controller
      */
     public function update(UpdateMasterRequest $request, Master $master)
     {
-        //
+        $master->name = $request->name;
+        $master->surname = $request->surname;
+        $master->salon_id = $request->salon_id;
+        if ($request->file('photo')) {
+            $photo = $request->file('photo');
+            $ext = $photo->getClientOriginalExtension();
+            $name = pathInfo($photo->getClientOriginalName(), PATHINFO_FILENAME);
+            $file = $name. '-'. rand(100000, 999999). $ext;
+            $photo->move(public_path().'/img', $file);
+            $master->photo = '/img'. '/'. $file;
+        }
+        $master->save();
+        return redirect()->route('master-index');
     }
 
     /**
@@ -61,6 +94,7 @@ class MasterController extends Controller
      */
     public function destroy(Master $master)
     {
-        //
+        $master->delete();
+        return redirect()->route('master-index');
     }
 }
