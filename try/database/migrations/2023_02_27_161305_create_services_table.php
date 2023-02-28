@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
+            $table->string('title', 50);
+            $table->decimal('min', 2)->unsigned();
+            $table->decimal('price', 5, 2)->unsigned();
+            $table->unsignedBigInteger('salon_id');
+            $table->foreign('salon_id')->references('id')->on('salons');
             $table->timestamps();
         });
     }
