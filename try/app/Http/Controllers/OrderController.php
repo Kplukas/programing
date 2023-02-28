@@ -14,7 +14,14 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $orders = Order::all();
+        return View('back.order.index', ['orders' => $orders]);
+    }
+
+    public function index2()
+    {
+        $orders = Order::all();
+        return View('front.order.index', ['orders' => $orders]);
     }
 
     /**
@@ -22,7 +29,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        //
+        return View('back.order.create');
     }
 
     /**
@@ -30,7 +37,16 @@ class OrderController extends Controller
      */
     public function store(StoreOrderRequest $request)
     {
-        //
+        $order = New Order;
+        $order->salon_id = $request->salon_id;
+        $order->master_id = $request->master_id;
+        $order->user_id = $request->user_id;
+        $order->service_id = $request->service_id;
+        $order->date = $request->date;
+        $order->time = $request->time;
+        $order->save();
+
+        return redirect()->route('back.order.index');
     }
 
     /**
@@ -46,7 +62,7 @@ class OrderController extends Controller
      */
     public function edit(Order $order)
     {
-        //
+        return View('back.order.edit');
     }
 
     /**
@@ -54,7 +70,15 @@ class OrderController extends Controller
      */
     public function update(UpdateOrderRequest $request, Order $order)
     {
-        //
+        $order->salon_id = $request->salon_id;
+        $order->master_id = $request->master_id;
+        $order->user_id = $request->user_id;
+        $order->service_id = $request->service_id;
+        $order->date = $request->date;
+        $order->time = $request->time;
+        $order->save();
+
+        return redirect()->route('back.order.index');
     }
 
     /**
@@ -62,6 +86,7 @@ class OrderController extends Controller
      */
     public function destroy(Order $order)
     {
-        //
+        $order->delete();
+        return redirect()->route('order-index');
     }
 }
