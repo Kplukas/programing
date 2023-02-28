@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigIntiger('salon_id');
+            $table->unsignedBigInteger('salon_id');
             $table->foreign('salon_id')->references('id')->on('salons');
-            $table->unsignedBigIntiger('master_id');
+            $table->unsignedBigInteger('master_id');
             $table->foreign('master_id')->references('id')->on('masters');
-            $table->unsignedBigIntiger('service_id');
+            $table->unsignedBigInteger('service_id');
             $table->foreign('service_id')->references('id')->on('services');
-            $table->unsignedBigIntiger('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->date('date');
             $table->time('time');

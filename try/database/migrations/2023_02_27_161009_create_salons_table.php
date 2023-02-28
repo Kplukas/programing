@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('salons', function (Blueprint $table) {
             $table->id();
-            $table->string('adresas', 100);
-            $table->string('pavadinimas', 100);
+            $table->string('adress', 100);
+            $table->string('title', 100);
             $table->decimal('tel', 9, 0);
             $table->timestamps();
         });
