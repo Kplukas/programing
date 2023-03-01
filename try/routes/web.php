@@ -21,13 +21,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::prefix('salon')->name('salon-')->group(function () {
-    Route::get('/', [SC::class, 'index'] )->name('index')->middleware('roles:A');
-    Route::get('/list', [SC::class, 'index2'] )->name('index2')->middleware('roles:A|C');
-    Route::get('/create', [SC::class, 'create'] )->name('create')->middleware('roles:A');
-    Route::post('/create', [SC::class, 'store'] )->name('store')->middleware('roles:A');
-    Route::get('/edit/{salon}', [SC::class, 'edit'] )->name('edit')->middleware('roles:A');
-    Route::put('/edit/{salon}', [SC::class, 'update'] )->name('update')->middleware('roles:A');
-    Route::delete('/delete/{salon}', [SC::class, 'destroy'])->name('delete')->middleware('roles:A');
+    Route::get('/', [SC::class, 'index'] )->name('index');
+    Route::get('/list', [SC::class, 'index2'] )->name('index2');
+    Route::get('/create', [SC::class, 'create'] )->name('create');
+    Route::post('/create', [SC::class, 'store'] )->name('store');
+    Route::get('/edit/{salon}', [SC::class, 'edit'] )->name('edit');
+    Route::put('/edit/{salon}', [SC::class, 'update'] )->name('update');
+    Route::delete('/delete/{salon}', [SC::class, 'destroy'])->name('delete');
 });
 Route::prefix('master')->name('master-')->group(function () {
     Route::get('/', [MC::class, 'index'] )->name('index')->middleware('roles:A');
