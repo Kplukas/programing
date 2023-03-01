@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Service;
+use App\Models\Salon;
 use App\Http\Requests\StoreServiceRequest;
 use App\Http\Requests\UpdateServiceRequest;
 use Illuminate\Support\Facades\Validator;
@@ -14,14 +15,16 @@ class ServiceController extends Controller
      */
     public function index()
     {
+        $salons = Salon::all();
         $services = Service::all();
-        return View('back.service.index', ['services' => $services]);
+        return View('back.service.index', ['services' => $services, 'salons' => $salons]);
     }
 
     public function index2()
     {
+        $salons = Salon::all();
         $services = Service::all();
-        return View('front.service.index', ['services' => $services]);
+        return View('front.service.index', ['services' => $services, 'salons' => $salons]);
     }
 
     /**
@@ -29,7 +32,8 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        return View('back.service.create');
+        $salons = Salon::all();
+        return View('back.service.create', ['salons' => $salons]);
     }
 
     /**
@@ -60,7 +64,8 @@ class ServiceController extends Controller
      */
     public function edit(Service $service)
     {
-        return View('back.service.edit', ['service' => $service]);
+        $salons = Salon::all();
+        return View('back.service.edit', ['service' => $service, 'salons' => $salons]);
     }
 
     /**
