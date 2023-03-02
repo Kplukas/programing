@@ -21,31 +21,31 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::prefix('salon')->name('salon-')->group(function () {
-    Route::get('/', [SC::class, 'index'] )->name('index');
-    Route::get('/list', [SC::class, 'index2'] )->name('index2');
-    Route::get('/create', [SC::class, 'create'] )->name('create');
-    Route::post('/create', [SC::class, 'store'] )->name('store');
-    Route::get('/edit/{salon}', [SC::class, 'edit'] )->name('edit');
-    Route::put('/edit/{salon}', [SC::class, 'update'] )->name('update');
-    Route::delete('/delete/{salon}', [SC::class, 'destroy'])->name('delete');
+    Route::get('/', [SC::class, 'index'] )->name('index')->middleware('roles:A');
+    Route::get('/list', [SC::class, 'index2'] )->name('index2')->middleware('roles:A|C');
+    Route::get('/create', [SC::class, 'create'] )->name('create')->middleware('roles:A');
+    Route::post('/create', [SC::class, 'store'] )->name('store')->middleware('roles:A');
+    Route::get('/edit/{salon}', [SC::class, 'edit'] )->name('edit')->middleware('roles:A');
+    Route::put('/edit/{salon}', [SC::class, 'update'] )->name('update')->middleware('roles:A');
+    Route::delete('/delete/{salon}', [SC::class, 'destroy'])->name('delete')->middleware('roles:A');
 });
 Route::prefix('master')->name('master-')->group(function () {
-    Route::get('/', [MC::class, 'index'] )->name('index');
-    Route::get('/list', [MC::class, 'index2'] )->name('index2');
-    Route::get('/create', [MC::class, 'create'] )->name('create');
-    Route::post('/create', [MC::class, 'store'] )->name('store');
-    Route::get('/edit/{master}', [MC::class, 'edit'] )->name('edit');
-    Route::put('/edit/{master}', [MC::class, 'update'] )->name('update');
-    Route::delete('/delete/{master}', [MC::class, 'destroy'])->name('delete');
+    Route::get('/', [MC::class, 'index'] )->name('index')->middleware('roles:A');
+    Route::get('/list', [MC::class, 'index2'] )->name('index2')->middleware('roles:A|C');
+    Route::get('/create', [MC::class, 'create'] )->name('create')->middleware('roles:A');
+    Route::post('/create', [MC::class, 'store'] )->name('store')->middleware('roles:A');
+    Route::get('/edit/{master}', [MC::class, 'edit'] )->name('edit')->middleware('roles:A');
+    Route::put('/edit/{master}', [MC::class, 'update'] )->name('update')->middleware('roles:A');
+    Route::delete('/delete/{master}', [MC::class, 'destroy'])->name('delete')->middleware('roles:A');
 });
 Route::prefix('service')->name('service-')->group(function () {
-    Route::get('/', [SE::class, 'index'] )->name('index');
-    Route::get('/list', [SE::class, 'index2'] )->name('index2');
-    Route::get('/create', [SE::class, 'create'] )->name('create');
-    Route::post('/create', [SE::class, 'store'] )->name('store');
-    Route::get('/edit/{service}', [SE::class, 'edit'] )->name('edit');
-    Route::put('/edit/{service}', [SE::class, 'update'] )->name('update');
-    Route::delete('/delete/{service}', [SE::class, 'destroy'])->name('delete');
+    Route::get('/', [SE::class, 'index'] )->name('index')->middleware('roles:A');
+    Route::get('/list', [SE::class, 'index2'] )->name('index2')->middleware('roles:A|C');
+    Route::get('/create', [SE::class, 'create'] )->name('create')->middleware('roles:A');
+    Route::post('/create', [SE::class, 'store'] )->name('store')->middleware('roles:A');
+    Route::get('/edit/{service}', [SE::class, 'edit'] )->name('edit')->middleware('roles:A');
+    Route::put('/edit/{service}', [SE::class, 'update'] )->name('update')->middleware('roles:A');
+    Route::delete('/delete/{service}', [SE::class, 'destroy'])->name('delete')->middleware('roles:A');
 });
 Route::prefix('order')->name('order-')->group(function () {
     Route::get('/', [OC::class, 'index'] )->name('index')->middleware('roles:A');
