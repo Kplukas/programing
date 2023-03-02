@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Master;
+use App\Models\Salon;
 use App\Http\Requests\StoreMasterRequest;
 use App\Http\Requests\UpdateMasterRequest;
 use Illuminate\Support\Facades\Validator;
@@ -14,14 +15,16 @@ class MasterController extends Controller
      */
     public function index()
     {
+        $salons = Salon::all();
         $masters = Master::all();
-        return View('back.master.index', ['masters' => $masters]);
+        return View('back.master.index', ['masters' => $masters, 'salons' => $salons]);
     }
 
     public function index2()
     {
+        $salons = Salon::all();
         $masters = Master::all();
-        return View('front.master.index', ['masters' => $masters]);
+        return View('front.master.index', ['masters' => $masters, 'salons' => $salons]);
     }
 
     /**
@@ -29,7 +32,8 @@ class MasterController extends Controller
      */
     public function create()
     {
-        return View('back.master.create');
+        $salons = Salon::all();
+        return View('back.master.create', ['salons' => $salons]);
     }
 
     /**
@@ -66,7 +70,9 @@ class MasterController extends Controller
      */
     public function edit(Master $master)
     {
-        return View('back.master.edit', ['master' => $master]);
+        $salons = Salon::all();
+        return View('back.master.edit', ['master' => $master,
+    'salons' => $salons]);
     }
 
     /**
