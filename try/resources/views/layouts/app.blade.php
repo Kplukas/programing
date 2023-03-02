@@ -36,7 +36,9 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
-                        @if(Auth::user()->role == 'customer')
+                        @if(!Auth::user())
+
+                        @elseif(Auth::user()->role == 'customer')
 
                         @elseif(Auth::user()->role == 'admin')
                         <li class="nav-item dropdown">
