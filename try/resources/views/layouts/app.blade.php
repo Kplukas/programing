@@ -18,7 +18,7 @@
 </head>
 <body class="bg-dark">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark bg-secondary border border-4 border-end-0 border-start-0 border-white shadow-sm">
+        <nav class="navbar navbar-expand-md sticky-top navbar-dark bg-secondary border border-4 border-end-0 border-start-0 border-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <svg width="248.17001190185545" height="34.23034646922144" viewBox="0 0 406 56" class="css-1j8o68f">

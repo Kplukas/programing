@@ -18,9 +18,9 @@
                     </h3>
                     @else
                     <h3 class="mt-5 p-5 text-center border-top border-bottom border-white border-3">Browse beauty: <br>
-                        <a class="btn btn-dark btn-outline-light col-3 m-2" href="{{route('salon-index2')}}">Salons </a>
-                        <a class="btn btn-dark btn-outline-light col-3 m-2" href="{{route('master-index2')}}">Experts </a>
-                        <a class="btn btn-dark btn-outline-light col-3 m-2" href="{{route('service-index2')}}">Services </a>
+                        <a class="btn btn-dark btn-outline-light col-sm-12 m-2" href="{{route('salon-index2')}}">Salons </a>
+                        <a class="btn btn-dark btn-outline-light col-sm-12 m-2" href="{{route('master-index2')}}">Experts </a>
+                        <a class="btn btn-dark btn-outline-light col-sm-12 m-2" href="{{route('service-index2')}}">Services </a>
                     </h3>
                     @endguest
                     <h4 class="text-center mt-5">We are missing something? Please let us know and we will add it in no time!</h4>
