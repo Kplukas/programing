@@ -16,8 +16,6 @@ return new class extends Migration
             $table->string('title', 50);
             $table->bigInteger('min')->unsigned();
             $table->decimal('price', 5, 2)->unsigned();
-            $table->unsignedBigInteger('salon_id');
-            $table->foreign('salon_id')->references('id')->on('salons');
             $table->timestamps();
         });
     }

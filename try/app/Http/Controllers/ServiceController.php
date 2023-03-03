@@ -45,7 +45,6 @@ class ServiceController extends Controller
         $service->title = $request->title;
         $service->min = $request->min;
         $service->price = $request->price;
-        $service->salon_id = $request->salon_id;
         $service->save();
 
         return redirect()->route('service-index');
@@ -76,7 +75,6 @@ class ServiceController extends Controller
         $service->title = $request->title;
         $service->min = $request->min;
         $service->price = $request->price;
-        $service->salon_id = $request->salon_id;
         $service->save();
 
         return redirect()->route('service-index');
