@@ -23,6 +23,7 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->date('date');
             $table->time('time');
+            $table->boolean('confirmed')->default(0);
             $table->timestamps();
         });
     }

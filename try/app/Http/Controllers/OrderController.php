@@ -44,6 +44,7 @@ class OrderController extends Controller
         $order->service_id = $request->service_id;
         $order->date = $request->date;
         $order->time = $request->time;
+        $order->string('confirmation', 20)->nullable();
         $order->save();
 
         return redirect()->route('back.order.index');
@@ -76,6 +77,7 @@ class OrderController extends Controller
         $order->service_id = $request->service_id;
         $order->date = $request->date;
         $order->time = $request->time;
+        $order->string('confirmation', 20)->nullable();
         $order->save();
 
         return redirect()->route('back.order.index');

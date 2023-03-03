@@ -76,7 +76,8 @@
                                 Order
                             </a>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{route('salon-index')}}">List (admin)</a>
+                                <a class="dropdown-item" href="{{route('order-index')}}">List (admin)</a>
+                                <a class="dropdown-item" href="{{route('order-index2')}}">My orders</a>
                             </div>
                         </li>
                         @endif
