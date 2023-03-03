@@ -16,7 +16,7 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
-<body class="bg-dark">
+<body style="background-image: url('https://ae01.alicdn.com/kf/HTB1VZNeaULrK1Rjy1zbq6AenFXam/Barber-barbershop-vintage-light-photo-studio-background-High-quality-Computer-print-wall-backdrop.jpg_Q90.jpg_.webp'); background-size:cover; background-attachment: fixed">
     <div id="app">
         <nav class="navbar navbar-expand-md sticky-top navbar-dark bg-secondary border border-4 border-end-0 border-start-0 border-white shadow-sm">
             <div class="container">
