@@ -4,22 +4,22 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card text-white bg-secondary border border-5 border-white">
                 <div class="card-header">
                     <h2>New Master</h2>
                 </div>
                 <div class="card-body">
                     <form action={{route('master-store')}} method="post" enctype="multipart/form-data">
                         <div class="mb-3">
-                            <label class="form-label">Name:</label>
-                            <input type="text" name="name" class="form-control">
+                            <label class="form-label col-4 border-bottom border-white border-3 fs-3">Name:</label>
+                            <input class="form-control" type="text" name="name" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Surname:</label>
-                            <input type="text" name="surname" class="form-control">
+                            <label class="form-label col-4 border-bottom border-white border-3 fs-3">Surname:</label>
+                            <input class="form-control" type="text" name="surname" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Salon</label>
+                            <label class="form-label col-4 border-bottom border-white border-3 fs-3">Salon</label>
                             <select name="salon_id" class="form-select">
                                 @foreach($salons as $salon)
                                 <option name="salon_id" value="{{$salon->id}}">{{$salon->title}}</option>
@@ -27,10 +27,10 @@
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Photo</label>
+                            <label class="form-label col-4 border-bottom border-white border-3 fs-3">Photo</label>
                             <input type="file" name="photo" class="form-control">
                         </div>
-                        <button type="submit">Add master</button>
+                        <button class="btn btn-dark btn-outline-light col-4 mt-2" type="submit">Add master</button>
                         @csrf
                         <form>
                 </div>

@@ -4,28 +4,28 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card text-white bg-secondary border border-5 border-white">
                 <div class="card-header">
-                 <h2>Update salon || {{$salon->title}} ||</h2>
+                    <h2>Update salon || {{$salon->title}} ||</h2>
                 </div>
                 <div class="card-body">
                     <form action={{route('salon-edit', $salon)}} method="post" enctype="multipart/form-data">
-                        <div>
-                            <label>Salon title</label>
-                            <input type="text" name="title" value="{{$salon->title}}">
+                        <div class="mb-3">
+                            <label class="form-label col-4 border-bottom border-white border-3 fs-3">Salon title</label>
+                            <input class="form-control" type="text" name="title" value="{{$salon->title}}">
                         </div>
-                        <div>
-                            <label>Adress</label>
-                            <input type="text" name="adress" value="{{$salon->adress}}">
+                        <div class="mb-3">
+                            <label class="form-label col-4 border-bottom border-white border-3 fs-3">Adress</label>
+                            <input class="form-control" type="text" name="adress" value="{{$salon->adress}}">
                         </div>
-                        <div>
-                            <label>Telephone number</label>
-                            <input type="text" name="tel" value="{{$salon->tel}}">
+                        <div class="mb-3">
+                            <label class="form-label col-4 border-bottom border-white border-3 fs-3">Telephone number</label>
+                            <input class="form-control" type="text" name="tel" value="{{$salon->tel}}">
                         </div>
-                        <button type="submit">Update salon</button>
+                        <button class="btn btn-dark btn-outline-light col-4 mt-2" type="submit">Update salon</button>
                         @csrf
                         @method('put')
-                    <form>
+                        <form>
                 </div>
             </div>
         </div>
