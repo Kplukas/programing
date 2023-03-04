@@ -21,7 +21,7 @@ class SalonController extends Controller
     public function index2()
     {
         $salons = Salon::all();
-        return View('back.salon.index', ['salons' => $salons]);
+        return View('front.salon.index', ['salons' => $salons]);
     }
 
     /**
