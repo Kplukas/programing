@@ -15,6 +15,12 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+                    <h3 class="mt-5 p-5 text-center border-top border-bottom border-white border-3">Browse beauty: <br>
+                        <a class="btn btn-dark btn-outline-light col-sm-12 m-2" href="{{route('salon-index2')}}">Salons </a>
+                        <a class="btn btn-dark btn-outline-light col-sm-12 m-2" href="{{route('master-index2')}}">Experts </a>
+                        <a class="btn btn-dark btn-outline-light col-sm-12 m-2" href="{{route('service-index2')}}">Services </a>
+                    </h3>
+
                 </div>
             </div>
         </div>
