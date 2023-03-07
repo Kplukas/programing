@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Salon;
+use App\Models\Master;
+use App\Models\Service;
 use App\Http\Requests\StoreSalonRequest;
 use App\Http\Requests\UpdateSalonRequest;
 use Illuminate\Support\Facades\Validator;
@@ -51,7 +53,9 @@ class SalonController extends Controller
      */
     public function show(Salon $salon)
     {
-        //
+        $masters = Master::where('salon_id', '=', $salon->id)->get();
+        $services = Service::all();
+        return View('front.salon.show', ['salon' => $salon, 'masters' => $masters, 'services' => $services]);
     }
 
     /**

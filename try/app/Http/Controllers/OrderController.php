@@ -29,7 +29,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        return View('back.order.create');
+        //
     }
 
     /**
@@ -44,10 +44,10 @@ class OrderController extends Controller
         $order->service_id = $request->service_id;
         $order->date = $request->date;
         $order->time = $request->time;
-        $order->string('confirmation', 20)->nullable();
+        $order->confirmed = '0';
         $order->save();
 
-        return redirect()->route('back.order.index');
+        return redirect()->route('salon-show', $request->salon_id);
     }
 
     /**
