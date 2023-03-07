@@ -53,8 +53,10 @@ Route::prefix('order')->name('order-')->group(function () {
     Route::get('/list', [OC::class, 'index2'] )->name('index2')->middleware('roles:A|C');
     Route::get('/create', [OC::class, 'create'] )->name('create')->middleware('roles:A|C');
     Route::post('/create', [OC::class, 'store'] )->name('store')->middleware('roles:A|C');
-    Route::get('/edit/{order}', [OC::class, 'edit'] )->name('edit')->middleware('roles:A');
+    Route::get('/edit/{order}', [OC::class, 'edit'] )->name('edit')->middleware('roles:A|C');
     Route::put('/edit/{order}', [OC::class, 'update'] )->name('update')->middleware('roles:A');
+    Route::get('/edit2/{order}', [OC::class, 'edit2'] )->name('edit2')->middleware('roles:A|C');
+    Route::put('/edit2/{order}', [OC::class, 'update2'] )->name('update2')->middleware('roles:A|C');
     Route::delete('/delete/{order}', [OC::class, 'destroy'])->name('delete')->middleware('roles:A');
 });
 

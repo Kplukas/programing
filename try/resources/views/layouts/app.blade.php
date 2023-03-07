@@ -117,7 +117,26 @@
                         @if(!Auth::user())
 
                         @elseif(Auth::user()->role == 'customer')
-
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('salon-index2')}}">
+                                Salons List
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('master-index2')}}">
+                                Masters List
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('service-index2')}}">
+                                Services List
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('order-index2')}}">
+                                Your orders
+                            </a>
+                        </li>
                         @elseif(Auth::user()->role == 'admin')
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expand="false" v-pre>

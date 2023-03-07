@@ -38,7 +38,7 @@
                             @if($order->confirmed == '3')
 
                             @else
-                            <form action="{{route('order-edit', $order)}}" method="post">
+                            <form action="{{route('order-edit2', $order)}}" method="post">
                                 <input type="hidden" name="confirmed" value="3">
                                 <button class="btn btn-dark btn-outline-danger col-4 mt-2" type="submit">Cancel reservation</button>
                                 @csrf

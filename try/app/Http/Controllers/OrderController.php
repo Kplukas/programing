@@ -84,23 +84,27 @@ class OrderController extends Controller
     {
         return View('back.order.edit', ['order' => $order]);
     }
+    public function edit2(Order $order)
+    {
+        return View('front.order.edit', ['order' => $order]);
+    }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(UpdateOrderRequest $request, Order $order)
     {
-        $order->salon_id = $request->salon_id;
-        $order->master_id = $request->master_id;
-        $order->user_id = $request->user_id;
-        $order->service_id = $request->service_id;
-        $order->date = $request->date;
-        $order->time = $request->time;
-        $order->string('confirmation', 20)->nullable();
+        $order->confirmed = $request->confirmed;
         $order->save();
-
-        return redirect()->route('back.order.index');
+        return redirect()->route('order-index');
     }
+    public function update2(UpdateOrderRequest $request, Order $order)
+    {
+        $order->confirmed = $request->confirmed;
+        $order->save();
+        return redirect()->route('order-index2');
+    }
+
 
     /**
      * Remove the specified resource from storage.
