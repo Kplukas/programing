@@ -20,7 +20,7 @@
                             <h3>Master {{$master->name}} {{$master->surname}}</h3>
                             @foreach($salons as $salon)
                             @if($salon->id == $master->salon_id)
-                            <p>Working in <strong>{{$salon->title}}</strong> beauty salon</p>
+                            <p>Working in <a class="text-white fw-bolder text-decoration-none" href="{{route('salon-show', $salon)}}">{{$salon->title}}</a> beauty salon</p>
                             @endif
                             @endforeach
                         </li>

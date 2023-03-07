@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Master;
+use App\Models\Service;
+use App\Models\Salon;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
 use Illuminate\Support\Facades\Validator;
@@ -14,14 +17,30 @@ class OrderController extends Controller
      */
     public function index()
     {
+        $salons = Salon::all();
+        $masters = Master::all();
+        $services = Service::all();
         $orders = Order::all();
-        return View('back.order.index', ['orders' => $orders]);
+        return View('back.order.index', [
+            'orders' => $orders,
+            'masters' => $masters,
+            'salons' => $salons,
+            'services' => $services
+            ]);
     }
 
     public function index2()
     {
+        $salons = Salon::all();
+        $masters = Master::all();
+        $services = Service::all();
         $orders = Order::all();
-        return View('front.order.index', ['orders' => $orders]);
+        return View('front.order.index', [
+            'orders' => $orders,
+            'masters' => $masters,
+            'salons' => $salons,
+            'services' => $services
+            ]);
     }
 
     /**
