@@ -47,9 +47,6 @@
                             @endif
                         </li>
                         @else
-                        <li>
-                            <h3> No orders yet</h3>
-                        </li>
                         @endif
                         @empty
                         <li>

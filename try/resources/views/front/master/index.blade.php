@@ -23,6 +23,11 @@
                             <p>Working in <a class="text-white fw-bolder text-decoration-none" href="{{route('salon-show', $salon)}}">{{$salon->title}}</a> beauty salon</p>
                             @endif
                             @endforeach
+                            @foreach($reviews as $review)
+                            @if($review->master_id == $master->id)
+
+                            @endif
+                            @endforeach
                         </li>
                         @empty
                         <li>

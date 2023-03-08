@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Master;
 use App\Models\Salon;
+use App\Models\Review;
 use App\Http\Requests\StoreMasterRequest;
 use App\Http\Requests\UpdateMasterRequest;
 use Illuminate\Support\Facades\Validator;
@@ -24,7 +25,8 @@ class MasterController extends Controller
     {
         $salons = Salon::all();
         $masters = Master::all();
-        return View('front.master.index', ['masters' => $masters, 'salons' => $salons]);
+        $reviews = Review::all();
+        return View('front.master.index', ['masters' => $masters, 'salons' => $salons, 'reviews' => $reviews]);
     }
 
     /**

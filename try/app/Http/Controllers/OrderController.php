@@ -6,6 +6,7 @@ use App\Models\Order;
 use App\Models\Master;
 use App\Models\Service;
 use App\Models\Salon;
+use App\Models\User;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
 use Illuminate\Support\Facades\Validator;
@@ -17,6 +18,7 @@ class OrderController extends Controller
      */
     public function index()
     {
+        $users = User::all();
         $salons = Salon::all();
         $masters = Master::all();
         $services = Service::all();
@@ -25,7 +27,8 @@ class OrderController extends Controller
             'orders' => $orders,
             'masters' => $masters,
             'salons' => $salons,
-            'services' => $services
+            'services' => $services,
+            'users' => $users
             ]);
     }
 
